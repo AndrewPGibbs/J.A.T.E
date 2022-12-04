@@ -16,8 +16,8 @@ export const putDb = async (id, content) => {
   console.log('PUT to the database');
   const textEditorDb = await openDB('jate', 1);
   const tx = textEditorDb.transaction('jate', 'readwrite');
-  const store = tx.objectStore('todos');
-  const request = store.put({ id: id, todo: content });
+  const store = tx.objectStore('jate');
+  const request = store.put({ id: 1, jate: content });
   const result = await request;
   console.log('🚀 - data saved to the database', result);
   console.error('putDb not implemented');
