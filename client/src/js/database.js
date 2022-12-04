@@ -12,7 +12,7 @@ const initdb = async () =>
     },
   });
 
-export const putDb = async (id, content) => {
+export const putDb = async (content) => {
   console.log('PUT to the database');
   const textEditorDb = await openDB('jate', 1);
   const tx = textEditorDb.transaction('jate', 'readwrite');
@@ -20,7 +20,6 @@ export const putDb = async (id, content) => {
   const request = store.put({ id: 1, jate: content });
   const result = await request;
   console.log('🚀 - data saved to the database', result);
-  console.error('putDb not implemented');
 };
 
 export const getDb = async () => {
@@ -31,7 +30,6 @@ export const getDb = async () => {
   const request = store.getAll();
   const result = await request;
   console.log('result.value', result);
-  console.error('getDb not implemented');
   return result;
 };
 initdb();
