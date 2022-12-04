@@ -14,8 +14,8 @@ const initdb = async () =>
 
 export const putDb = async (id, content) => {
   console.log('PUT to the database');
-  const todosDb = await openDB('todos', 1);
-  const tx = todosDb.transaction('todos', 'readwrite');
+  const textEditorDb = await openDB('jate', 1);
+  const tx = textEditorDb.transaction('jate', 'readwrite');
   const store = tx.objectStore('todos');
   const request = store.put({ id: id, todo: content });
   const result = await request;
